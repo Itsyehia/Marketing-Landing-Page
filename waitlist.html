@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Join the CineGourmet waitlist for early access to immersive cinematic dining experiences."
+    />
+    <title>Join the Waitlist | CineGourmet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: "#1a1a1a",
+              gold: "#D4AF37",
+              cream: "#FFFDD0",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-charcoal text-cream">
+    <header class="site-header">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="./index.html" class="brand">
+          <span class="brand-mark">CG</span>
+          <span class="brand-text">CineGourmet</span>
+        </a>
+        <button
+          id="menuToggle"
+          class="menu-toggle md:hidden"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links hidden items-center gap-8 md:flex">
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./index.html#movies">Experiences</a></li>
+          <li><a href="./waitlist.html" class="btn-nav">Waitlist</a></li>
+        </ul>
+      </nav>
+      <div id="mobileMenu" class="mobile-menu md:hidden">
+        <a href="./index.html">Home</a>
+        <a href="./index.html#movies">Experiences</a>
+        <a href="./waitlist.html">Waitlist</a>
+      </div>
+    </header>
+
+    <main class="waitlist-main">
+      <section class="waitlist-wrap px-6">
+        <div class="waitlist-panel">
+          <p class="eyebrow">Limited Access</p>
+          <h1>Join the CineGourmet Waitlist</h1>
+          <p class="waitlist-intro">
+            Secure priority access to opening nights and chef-led cinematic menus.
+            This static demo form shows a success experience for GitHub Pages.
+          </p>
+
+          <form id="waitlistForm" class="waitlist-form" novalidate>
+            <label for="fullName">Full Name</label>
+            <input
+              id="fullName"
+              name="fullName"
+              type="text"
+              autocomplete="name"
+              required
+              placeholder="Your full name"
+            />
+
+            <label for="emailAddress">Email Address</label>
+            <input
+              id="emailAddress"
+              name="emailAddress"
+              type="email"
+              autocomplete="email"
+              required
+              placeholder="you@example.com"
+            />
+
+            <label for="favoriteMovie">Favorite Food Movie</label>
+            <select id="favoriteMovie" name="favoriteMovie" required>
+              <option value="">Select a movie</option>
+              <option value="Ratatouille">Ratatouille</option>
+              <option value="Chef">Chef</option>
+              <option value="The Hundred-Foot Journey">
+                The Hundred-Foot Journey
+              </option>
+              <option value="Chocolat">Chocolat</option>
+              <option value="Other">Other</option>
+            </select>
+
+            <button type="submit" class="btn-primary">Join Now</button>
+          </form>
+
+          <p class="form-note">
+            Want real submissions? Add your Formspree endpoint to the form
+            <code>action</code> attribute and remove JS prevention logic in
+            <code>js/script.js</code>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <div
+      id="successModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-panel">
+        <div class="modal-icon">✓</div>
+        <h2 id="modalTitle">You Are on the List</h2>
+        <p>
+          Thank you for joining CineGourmet. We will contact you first when the
+          next cinematic dining dates open.
+        </p>
+        <div class="mt-6 flex justify-center">
+          <button id="closeModalBtn" class="btn-primary" type="button">
+            Continue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm md:flex-row md:items-center md:justify-between"
+      >
+        <p>© 2026 CineGourmet: The Silver Screen Table</p>
+        <div class="flex items-center gap-6">
+          <a href="./index.html">Home</a>
+          <a href="./waitlist.html">Waitlist</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>

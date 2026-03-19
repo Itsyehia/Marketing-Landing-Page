@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Cinematic dining table placeholder image">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f0f0f"/>
+      <stop offset="60%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#2a2414"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="52%" r="34%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <ellipse cx="800" cy="510" rx="470" ry="170" fill="#141414" stroke="#D4AF37" stroke-opacity="0.35"/>
+  <ellipse cx="800" cy="510" rx="310" ry="96" fill="#1d1d1d" stroke="#FFFDD0" stroke-opacity="0.2"/>
+  <rect x="690" y="400" width="220" height="120" rx="16" fill="#101010" stroke="#D4AF37" stroke-opacity="0.45"/>
+  <circle cx="800" cy="460" r="38" fill="#222"/>
+  <rect x="764" y="450" width="72" height="16" rx="8" fill="#D4AF37"/>
+  <circle cx="800" cy="510" r="290" fill="url(#glow)"/>
+  <text x="800" y="160" text-anchor="middle" fill="#FFFDD0" font-size="46" font-family="Georgia, serif" letter-spacing="6">CineGourmet</text>
+  <text x="800" y="208" text-anchor="middle" fill="#D4AF37" font-size="20" font-family="Arial, sans-serif" letter-spacing="5">THE SILVER SCREEN TABLE</text>
+</svg>

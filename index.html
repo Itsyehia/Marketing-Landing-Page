@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CineGourmet: The Silver Screen Table - a cinematic dining journey where iconic food movie scenes are synchronized with real dishes."
+    />
+    <title>CineGourmet | The Silver Screen Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              charcoal: "#1a1a1a",
+              gold: "#D4AF37",
+              cream: "#FFFDD0",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body class="bg-charcoal text-cream">
+    <header class="site-header">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="./index.html" class="brand">
+          <span class="brand-mark">CG</span>
+          <span class="brand-text">CineGourmet</span>
+        </a>
+        <button
+          id="menuToggle"
+          class="menu-toggle md:hidden"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links hidden items-center gap-8 md:flex">
+          <li><a href="./index.html#experience">Experience</a></li>
+          <li><a href="./index.html#movies">Movies</a></li>
+          <li><a href="./waitlist.html" class="btn-nav">Join Waitlist</a></li>
+        </ul>
+      </nav>
+      <div id="mobileMenu" class="mobile-menu md:hidden">
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#movies">Movies</a>
+        <a href="./waitlist.html">Join Waitlist</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-media">
+          <img
+            src="./assets/hero-table.svg"
+            alt="A dramatic dining table setup with cinematic projection lighting."
+            class="hero-image"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content mx-auto max-w-6xl px-6">
+          <p class="eyebrow">Immersive Cinematic Dining</p>
+          <h1>CineGourmet: The Silver Screen Table</h1>
+          <p class="hero-copy">
+            Watch iconic food scenes unfold on your table, then taste them seconds
+            later. Story, projection mapping, and fine cuisine become one perfectly
+            synchronized performance.
+          </p>
+          <div class="hero-ctas">
+            <a href="./waitlist.html" class="btn-primary">Reserve Your Seat</a>
+            <a href="#experience" class="btn-secondary">How It Works</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section-shell">
+        <div class="mx-auto max-w-6xl px-6">
+          <p class="eyebrow">The Experience</p>
+          <h2>From Screen to Plate in Three Acts</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="step-card">
+              <span class="step-number">01</span>
+              <h3>Watch the Scene</h3>
+              <p>
+                A curated sequence from a beloved food film is projected directly
+                onto your table with cinematic sound design.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">02</span>
+              <h3>The Chef Animates</h3>
+              <p>
+                A miniature animated chef appears to prepare your next course in
+                perfect rhythm with the movie's on-screen moment.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">03</span>
+              <h3>The Dish Appears</h3>
+              <p>
+                As the scene lands, your real dish arrives fresh, plated, and timed
+                to the second for a seamless sensory reveal.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="movies" class="section-shell section-muted">
+        <div class="mx-auto max-w-6xl px-6">
+          <p class="eyebrow">Featured Movie Experiences</p>
+          <h2>Choose Your Cinematic Menu</h2>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            <article class="movie-card">
+              <img
+                src="./assets/remy-experience.svg"
+                alt="A stylized presentation of Confit Byaldi from Ratatouille."
+              />
+              <div class="movie-content">
+                <h3>The Remy Experience</h3>
+                <p class="movie-subtitle">Inspired by Ratatouille</p>
+                <p>
+                  A refined tribute to Paris with Confit Byaldi served at the
+                  precise emotional peak of the story.
+                </p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <img
+                src="./assets/cubano-night.svg"
+                alt="A cinematic Mojo Pork Sandwich inspired by Chef."
+              />
+              <div class="movie-content">
+                <h3>The Cubano Night</h3>
+                <p class="movie-subtitle">Inspired by Chef</p>
+                <p>
+                  Bold street-food energy meets polished service with a rich Mojo
+                  Pork Sandwich reveal timed to the film's signature moment.
+                </p>
+              </div>
+            </article>
+            <article class="movie-card">
+              <img
+                src="./assets/vianne-special.svg"
+                alt="Artisanal chocolates inspired by Chocolat."
+              />
+              <div class="movie-content">
+                <h3>The Vianne Special</h3>
+                <p class="movie-subtitle">Inspired by Chocolat</p>
+                <p>
+                  Delicate artisanal chocolates arrive with enchanting visuals,
+                  designed for a warm and nostalgic finale.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell">
+        <div class="mx-auto max-w-5xl px-6">
+          <div class="cta-panel">
+            <h2>Seats Are Limited Per Showing</h2>
+            <p>
+              Join the priority waitlist to access first-release dates, chef
+              previews, and opening-night invitations.
+            </p>
+            <a href="./waitlist.html" class="btn-primary">Join the Waitlist</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div
+        class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm md:flex-row md:items-center md:justify-between"
+      >
+        <p>© 2026 CineGourmet: The Silver Screen Table</p>
+        <div class="flex items-center gap-6">
+          <a href="./index.html">Home</a>
+          <a href="./waitlist.html">Waitlist</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
