@@ -1,82 +1,101 @@
-document.addEventListener("DOMContentLoaded", () => {
-  setupMobileMenu();
-  setupWaitlistForm();
-});
+(() => {
+  'use strict';
 
-function setupMobileMenu() {
-  const menuToggle = document.getElementById("menuToggle");
-  const mobileMenu = document.getElementById("mobileMenu");
+  // ── Scroll-reveal observer ──────────────────────────────────
+  const revealElements = () => {
+    const targets = document.querySelectorAll('.reveal-up');
 
-  if (!menuToggle || !mobileMenu) {
-    return;
-  }
+    if (!targets.length) return;
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = mobileMenu.classList.toggle("open");
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-  });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+    );
 
-  mobileMenu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      mobileMenu.classList.remove("open");
-      menuToggle.setAttribute("aria-expanded", "false");
+    targets.forEach((el) => observer.observe(el));
+  };
+
+  // ── Navbar background on scroll ─────────────────────────────
+  const handleNavbar = () => {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    const toggleNavbar = () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', toggleNavbar, { passive: true });
+    toggleNavbar();
+  };
+
+  // ── Smooth anchor scrolling ─────────────────────────────────
+  const smoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
-  });
-}
+  };
 
-function setupWaitlistForm() {
-  const form = document.getElementById("waitlistForm");
-  if (!form) {
-    return;
-  }
+  // ── Waitlist form handling (demo) ───────────────────────────
+  const handleForm = () => {
+    const form = document.getElementById('waitlist-form');
+    const successMsg = document.getElementById('success-message');
 
-  const modal = document.getElementById("successModal");
-  const closeModalBtn = document.getElementById("closeModalBtn");
+    if (!form || !successMsg) return;
 
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    form.reset();
-    openModal(modal);
-  });
-
-  if (closeModalBtn) {
-    closeModalBtn.addEventListener("click", () => closeModal(modal));
-  }
-
-  if (modal) {
-    modal.addEventListener("click", (event) => {
-      const target = event.target;
-      if (target instanceof HTMLElement && target.dataset.closeModal === "true") {
-        closeModal(modal);
+    form.addEventListener('submit', (e) => {
+      const action = form.getAttribute('action');
+      if (!action || action.includes('YOUR_FORM_ID')) {
+        e.preventDefault();
+        form.classList.add('hidden');
+        successMsg.classList.remove('hidden');
+        successMsg.classList.add('hero-fade');
       }
     });
+  };
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-        closeModal(modal);
-      }
-    });
-  }
-}
+  // ── Parallax hint on hero image ─────────────────────────────
+  const heroParallax = () => {
+    const heroImg = document.querySelector('section:first-of-type img');
+    if (!heroImg) return;
 
-function openModal(modal) {
-  if (!modal) {
-    return;
-  }
-  modal.classList.remove("hidden");
-  document.body.style.overflow = "hidden";
-}
+    window.addEventListener(
+      'scroll',
+      () => {
+        const scrolled = window.scrollY;
+        if (scrolled < window.innerHeight) {
+          heroImg.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
+        }
+      },
+      { passive: true }
+    );
+  };
 
-function closeModal(modal) {
-  if (!modal) {
-    return;
-  }
-  modal.classList.add("hidden");
-  document.body.style.overflow = "";
-}
+  // ── Initialize ──────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', () => {
+    revealElements();
+    handleNavbar();
+    smoothScroll();
+    handleForm();
+    heroParallax();
+  });
+})();

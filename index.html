@@ -1,194 +1,257 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="CineGourmet: The Silver Screen Table - a cinematic dining journey where iconic food movie scenes are synchronized with real dishes."
-    />
-    <title>CineGourmet | The Silver Screen Table</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              charcoal: "#1a1a1a",
-              gold: "#D4AF37",
-              cream: "#FFFDD0",
-            },
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voila — An Immersive Cinematic Dining Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C5A059',
+            'gold-light': '#D4B06A',
+            'dark': '#0A0A0A',
+            'dark-card': '#111111',
+            'dark-surface': '#1A1A1A',
           },
-        },
-      };
-    </script>
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body class="bg-charcoal text-cream">
-    <header class="site-header">
-      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="./index.html" class="brand">
-          <span class="brand-mark">CG</span>
-          <span class="brand-text">CineGourmet</span>
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Inter"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="bg-dark text-white font-sans antialiased">
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="fixed top-0 left-0 w-full z-50 transition-all duration-500" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="index.html" class="font-serif text-2xl tracking-widest text-gold">VOILA</a>
+      <div class="flex items-center gap-8">
+        <a href="#experience" class="hidden sm:inline text-sm tracking-wider text-white/70 hover:text-gold transition-colors duration-300 uppercase">Experience</a>
+        <a href="#showtimes" class="hidden sm:inline text-sm tracking-wider text-white/70 hover:text-gold transition-colors duration-300 uppercase">Showtimes</a>
+        <a href="join.html" class="border border-gold text-gold px-6 py-2 text-sm tracking-wider uppercase hover:bg-gold hover:text-dark transition-all duration-300">Join Waitlist</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=2070"
+        alt="Cinematic theater ambiance"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/50 to-dark"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+      <p class="text-gold tracking-[0.4em] uppercase text-sm mb-6 font-sans font-medium hero-fade" style="animation-delay: 0.3s">
+        A Cinematic Dining Experience
+      </p>
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] mb-8 hero-fade" style="animation-delay: 0.6s">
+        Watch it.<br />Taste it.<br /><span class="text-gold italic">Voila.</span>
+      </h1>
+      <p class="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed hero-fade" style="animation-delay: 0.9s">
+        The world's most iconic flavors, served in sync with the silver screen.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center hero-fade" style="animation-delay: 1.2s">
+        <a href="#showtimes" class="bg-gold text-dark px-10 py-4 text-sm tracking-wider uppercase font-semibold hover:bg-gold-light transition-all duration-300">
+          View Showtimes
         </a>
-        <button
-          id="menuToggle"
-          class="menu-toggle md:hidden"
-          type="button"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-          aria-controls="mobileMenu"
-        >
-          <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-links hidden items-center gap-8 md:flex">
-          <li><a href="./index.html#experience">Experience</a></li>
-          <li><a href="./index.html#movies">Movies</a></li>
-          <li><a href="./waitlist.html" class="btn-nav">Join Waitlist</a></li>
-        </ul>
-      </nav>
-      <div id="mobileMenu" class="mobile-menu md:hidden">
-        <a href="./index.html#experience">Experience</a>
-        <a href="./index.html#movies">Movies</a>
-        <a href="./waitlist.html">Join Waitlist</a>
+        <a href="join.html" class="border border-white/30 text-white px-10 py-4 text-sm tracking-wider uppercase font-medium hover:border-gold hover:text-gold transition-all duration-300">
+          Reserve a Seat
+        </a>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section class="hero-section">
-        <div class="hero-media">
-          <img
-            src="./assets/hero-table.svg"
-            alt="A dramatic dining table setup with cinematic projection lighting."
-            class="hero-image"
-          />
-          <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content mx-auto max-w-6xl px-6">
-          <p class="eyebrow">Immersive Cinematic Dining</p>
-          <h1>CineGourmet: The Silver Screen Table</h1>
-          <p class="hero-copy">
-            Watch iconic food scenes unfold on your table, then taste them seconds
-            later. Story, projection mapping, and fine cuisine become one perfectly
-            synchronized performance.
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+      <div class="scroll-indicator">
+        <div class="scroll-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== THE EXPERIENCE ===================== -->
+  <section id="experience" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-gold tracking-[0.3em] uppercase text-sm mb-4 reveal-up">How It Works</p>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold reveal-up">The Sync-Dining Experience</h2>
+        <div class="w-16 h-px bg-gold mx-auto mt-8 reveal-up"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16">
+        <!-- Step 1 -->
+        <div class="text-center group reveal-up">
+          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-500">
+            <span class="font-serif text-3xl text-gold">01</span>
+          </div>
+          <h3 class="font-serif text-2xl mb-4">Choose Your Scene</h3>
+          <p class="text-white/50 leading-relaxed font-light">
+            Select from our curated lineup of cinema's greatest food moments. Each screening is a carefully crafted multi-sensory journey.
           </p>
-          <div class="hero-ctas">
-            <a href="./waitlist.html" class="btn-primary">Reserve Your Seat</a>
-            <a href="#experience" class="btn-secondary">How It Works</a>
-          </div>
         </div>
-      </section>
-
-      <section id="experience" class="section-shell">
-        <div class="mx-auto max-w-6xl px-6">
-          <p class="eyebrow">The Experience</p>
-          <h2>From Screen to Plate in Three Acts</h2>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <article class="step-card">
-              <span class="step-number">01</span>
-              <h3>Watch the Scene</h3>
-              <p>
-                A curated sequence from a beloved food film is projected directly
-                onto your table with cinematic sound design.
-              </p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">02</span>
-              <h3>The Chef Animates</h3>
-              <p>
-                A miniature animated chef appears to prepare your next course in
-                perfect rhythm with the movie's on-screen moment.
-              </p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">03</span>
-              <h3>The Dish Appears</h3>
-              <p>
-                As the scene lands, your real dish arrives fresh, plated, and timed
-                to the second for a seamless sensory reveal.
-              </p>
-            </article>
+        <!-- Step 2 -->
+        <div class="text-center group reveal-up" style="animation-delay: 0.15s">
+          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-500">
+            <span class="font-serif text-3xl text-gold">02</span>
           </div>
+          <h3 class="font-serif text-2xl mb-4">Watch the Film</h3>
+          <p class="text-white/50 leading-relaxed font-light">
+            Immerse yourself in a private theater with stunning 4K projection, Dolby Atmos sound, and ambient lighting that syncs with every scene.
+          </p>
         </div>
-      </section>
-
-      <section id="movies" class="section-shell section-muted">
-        <div class="mx-auto max-w-6xl px-6">
-          <p class="eyebrow">Featured Movie Experiences</p>
-          <h2>Choose Your Cinematic Menu</h2>
-          <div class="mt-10 grid gap-6 md:grid-cols-3">
-            <article class="movie-card">
-              <img
-                src="./assets/remy-experience.svg"
-                alt="A stylized presentation of Confit Byaldi from Ratatouille."
-              />
-              <div class="movie-content">
-                <h3>The Remy Experience</h3>
-                <p class="movie-subtitle">Inspired by Ratatouille</p>
-                <p>
-                  A refined tribute to Paris with Confit Byaldi served at the
-                  precise emotional peak of the story.
-                </p>
-              </div>
-            </article>
-            <article class="movie-card">
-              <img
-                src="./assets/cubano-night.svg"
-                alt="A cinematic Mojo Pork Sandwich inspired by Chef."
-              />
-              <div class="movie-content">
-                <h3>The Cubano Night</h3>
-                <p class="movie-subtitle">Inspired by Chef</p>
-                <p>
-                  Bold street-food energy meets polished service with a rich Mojo
-                  Pork Sandwich reveal timed to the film's signature moment.
-                </p>
-              </div>
-            </article>
-            <article class="movie-card">
-              <img
-                src="./assets/vianne-special.svg"
-                alt="Artisanal chocolates inspired by Chocolat."
-              />
-              <div class="movie-content">
-                <h3>The Vianne Special</h3>
-                <p class="movie-subtitle">Inspired by Chocolat</p>
-                <p>
-                  Delicate artisanal chocolates arrive with enchanting visuals,
-                  designed for a warm and nostalgic finale.
-                </p>
-              </div>
-            </article>
+        <!-- Step 3 -->
+        <div class="text-center group reveal-up" style="animation-delay: 0.3s">
+          <div class="w-20 h-20 mx-auto mb-8 rounded-full border border-gold/30 flex items-center justify-center group-hover:border-gold transition-colors duration-500">
+            <span class="font-serif text-3xl text-gold">03</span>
           </div>
-        </div>
-      </section>
-
-      <section class="section-shell">
-        <div class="mx-auto max-w-5xl px-6">
-          <div class="cta-panel">
-            <h2>Seats Are Limited Per Showing</h2>
-            <p>
-              Join the priority waitlist to access first-release dates, chef
-              previews, and opening-night invitations.
-            </p>
-            <a href="./waitlist.html" class="btn-primary">Join the Waitlist</a>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div
-        class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 text-sm md:flex-row md:items-center md:justify-between"
-      >
-        <p>© 2026 CineGourmet: The Silver Screen Table</p>
-        <div class="flex items-center gap-6">
-          <a href="./index.html">Home</a>
-          <a href="./waitlist.html">Waitlist</a>
+          <h3 class="font-serif text-2xl mb-4">Taste the Moment</h3>
+          <p class="text-white/50 leading-relaxed font-light">
+            The exact dish appears on your table at the precise moment it graces the screen. Cinema and cuisine, perfectly synchronized.
+          </p>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <script src="./js/script.js"></script>
-  </body>
+  <!-- ===================== DIVIDER QUOTE ===================== -->
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto text-center reveal-up">
+      <blockquote class="font-serif text-2xl sm:text-3xl italic text-white/80 leading-relaxed">
+        "Anyone can cook — but only the fearless can dine at <span class="text-gold">Voila</span>."
+      </blockquote>
+      <p class="text-white/40 mt-6 text-sm tracking-widest uppercase">— Inspired by Ratatouille</p>
+    </div>
+  </section>
+
+  <!-- ===================== SHOWTIMES GRID ===================== -->
+  <section id="showtimes" class="py-32 px-6 bg-dark-surface">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="text-gold tracking-[0.3em] uppercase text-sm mb-4 reveal-up">Now Showing</p>
+        <h2 class="font-serif text-4xl sm:text-5xl font-bold reveal-up">Current Experiences</h2>
+        <div class="w-16 h-px bg-gold mx-auto mt-8 reveal-up"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Ratatouille -->
+        <div class="showtime-card group reveal-up">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://i.pinimg.com/1200x/6f/38/0a/6f380a718197a979dbb6d26e651b9f04.jpg"
+              alt="Elegant vegetable confit inspired by Ratatouille"
+              class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 bg-gold/90 text-dark text-xs font-semibold tracking-wider px-3 py-1 uppercase">
+              Sold Out
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gold text-xs tracking-[0.2em] uppercase mb-2">Animation • 2007</p>
+            <h3 class="font-serif text-2xl mb-3">The "Ratatouille" Experience</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-6 font-light">
+              Confit Byaldi — the rustic-meets-refined vegetable dish that made a food critic weep. Served at the exact climactic moment.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-white/40 text-sm">Fri & Sat • 8:00 PM</span>
+              <span class="text-gold text-sm font-semibold">$185 / seat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Chef -->
+        <div class="showtime-card group reveal-up" style="animation-delay: 0.15s">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://i.pinimg.com/736x/23/62/c7/2362c7ee944afd656a066d6ab7a22deb.jpg"
+              alt="Gourmet toasted sandwich inspired by Chef"
+              class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 bg-green-600/90 text-white text-xs font-semibold tracking-wider px-3 py-1 uppercase">
+              Available
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gold text-xs tracking-[0.2em] uppercase mb-2">Comedy-Drama • 2014</p>
+            <h3 class="font-serif text-2xl mb-3">The "Chef" Experience</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-6 font-light">
+              The Cubano — a pressed masterpiece of roasted pork, ham, Swiss, pickles, and mustard that reignited a chef's soul.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-white/40 text-sm">Thu & Sun • 7:30 PM</span>
+              <span class="text-gold text-sm font-semibold">$145 / seat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: The Bear -->
+        <div class="showtime-card group reveal-up" style="animation-delay: 0.3s">
+          <div class="relative overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=2070"
+              alt="Decadent chocolate cake inspired by The Bear"
+              class="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            <div class="absolute top-4 right-4 bg-gold/90 text-dark text-xs font-semibold tracking-wider px-3 py-1 uppercase">
+              Few Left
+            </div>
+          </div>
+          <div class="p-6">
+            <p class="text-gold text-xs tracking-[0.2em] uppercase mb-2">Drama • 2022</p>
+            <h3 class="font-serif text-2xl mb-3">The "Bear" Experience</h3>
+            <p class="text-white/50 text-sm leading-relaxed mb-6 font-light">
+              Michael's Chocolate Cake — impossibly rich, devastatingly perfect. The dessert that proved love is baked, not spoken.
+            </p>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <span class="text-white/40 text-sm">Wed & Sat • 9:00 PM</span>
+              <span class="text-gold text-sm font-semibold">$165 / seat</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA SECTION ===================== -->
+  <section class="py-32 px-6 text-center">
+    <div class="max-w-2xl mx-auto reveal-up">
+      <p class="text-gold tracking-[0.3em] uppercase text-sm mb-4">Limited Seating</p>
+      <h2 class="font-serif text-4xl sm:text-5xl font-bold mb-6">Don't Miss the Next Showing</h2>
+      <p class="text-white/50 text-lg font-light mb-10 leading-relaxed">
+        Seats are released weekly and sell out within hours. Join the waitlist to get early access and exclusive screening invites.
+      </p>
+      <a href="join.html" class="inline-block bg-gold text-dark px-12 py-4 text-sm tracking-wider uppercase font-semibold hover:bg-gold-light transition-all duration-300">
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-white/10 py-12 px-6">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="index.html" class="font-serif text-xl tracking-widest text-gold">VOILA</a>
+      <p class="text-white/30 text-sm">&copy; 2026 Voila. All rights reserved. An experience by invitation only.</p>
+      <div class="flex gap-6">
+        <a href="#" class="text-white/30 hover:text-gold text-sm transition-colors duration-300">Instagram</a>
+        <a href="#" class="text-white/30 hover:text-gold text-sm transition-colors duration-300">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
 </html>
